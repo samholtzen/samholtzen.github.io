@@ -1,36 +1,33 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
-    "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "name": "Sam Holtzen",
+    "image": "IMG_1896.jpg",
+    "email": "sholtzen@caltech.edu",
+    "url": "github.com/samholtzen",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
+      "address": "California Institute of Technology",
+      "postalCode": "CA 91125",
+      "city": "Pasadena",
       "countryCode": "US",
       "region": "California"
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "Bluesky",
+        "username": "samholtzen.bsky.social",
+        "url": "https://bsky.app/profile/samholtzen.bsky.social"
       }
     ]
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
+      "name": "Californa Institute of Technology",
+      "position": "Postdoctoral fellow",
+      "url": "vanvalen.caltech.edu",
+      "startDate": "2024-09-01",
+      "endDate": "Present",
+      "summary": "Developing high-throughput methods for studying metabolite-signaling crosstalk.",
+      "highlights": ["Bioengineering"]
     }
   ],
   "volunteer": [
