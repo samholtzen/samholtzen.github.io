@@ -911,7 +911,63 @@ html.transition *:after {
 }
 
 // Extra Markdown style (post Customization)
+.container.mt-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .post {
+
+  &.post-profile {
+    max-width: 800px;
+  }
+  
+  .side-by-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+
+    header {
+      flex: 1;
+      text-align: left;
+      min-width: 300px;
+      padding: 0 15px 0 0;
+
+      .social {
+        text-align: left;
+      }
+    }
+
+    .profile-image {
+      flex: 1;
+      min-width: 300px;
+      
+      img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0px 0px 3px rgb(80, 79, 79));
+      }
+    }
+
+    @media (max-width: 629px) {
+      header {
+        text-align: center;
+
+        .social {
+          text-align: center;
+        }
+      }
+
+      .profile-image {
+        max-width: 400px;
+      }
+
+    }
+  }
   .post-meta {
     color: var(--global-text-color-light);
     font-size: 0.875rem;

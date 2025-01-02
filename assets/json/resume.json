@@ -3,7 +3,7 @@
     "name": "Sam Holtzen",
     "image": "IMG_1896.jpg",
     "email": "sholtzen@caltech.edu",
-    "url": "github.com/samholtzen",
+    "URL": "http://github.com/samholtzen",
     "location": {
       "address": "California Institute of Technology",
       "postalCode": "CA 91125",
@@ -82,11 +82,11 @@
       ]
     },    
     {
-      "name": "Language",
+      "name": "Music",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Language construction",
-        "Learning new languages"
+        "Music composition",
+        "Music production"
       ]
     }
   ],
