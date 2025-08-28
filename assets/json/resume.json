@@ -80,7 +80,16 @@
         "Protein engineering",
         "Computational protein design"
       ]
-    },    
+    },
+    {
+      "name": "Ceramics",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        "Porcelain",
+        "Functional pottery",
+        "Glaze chemistry"
+      ]
+    },   
     {
       "name": "Music",
       "icon": "fa-solid fa-tag",
@@ -104,6 +113,14 @@
       "highlights": ["Computational Biology","Protein Design"],
       "startDate": "2024-09-01",
       "endDate": "Present"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Biology and Bioengineering Divisional Fellowship Award",
+      "summary": "A fully funded postdoctoral fellowship for two years through the division of Biology and Bioengineering.",
+      "date": "2025-06-01",
+      "awarder": "Divisionl of Biology and Bioengineering, Caltech"
     }
   ]
 }

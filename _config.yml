@@ -86,8 +86,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Sam will be posting soon... # blog_name will be displayed in your blog page
-blog_description: Posts by Sam, who will be posting soon, unfortunately.
+blog_name: Sam's posting again... # blog_name will be displayed in your blog page
+blog_description: Posts by Sam, who is posting again, unfortunately.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
