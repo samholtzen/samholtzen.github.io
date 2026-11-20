@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import PublicationList from '../components/PublicationList.astro';
+import { getPublications } from '../lib/content';
+import { site } from '../data/site';
+
+const publications = getPublications();
+const scholar = site.links.find((l) => l.label === 'Google Scholar');
+---
+
+<Base title="Publications" description={`Publications by ${site.name}.`}>
+  <h1>Publications</h1>
+  {
+    scholar && (
+      <p class="muted">
+        Also on <a href={scholar.href}>Google Scholar</a>.
+      </p>
+    )
+  }
+  <PublicationList publications={publications} />
+</Base>
+
+<style>
+  h1 + p {
+    margin-bottom: 2.5rem;
+  }
+</style>

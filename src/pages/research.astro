@@ -1,0 +1,15 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const page = await getEntry('pages', 'research');
+if (!page) throw new Error('Missing src/content/pages/research.md');
+const { Content } = await render(page);
+---
+
+<Base title="Research">
+  <h1>Research</h1>
+  <div class="prose">
+    <Content />
+  </div>
+</Base>

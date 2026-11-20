@@ -1,0 +1,49 @@
+# CV content, rendered on /cv/.
+#
+# Each section has a `title` and a list of `items`. Every item can have:
+#   when:     date or range shown in the left column (e.g. "2024–present")
+#   what:     the main line (degree, position, award)
+#   where:    institution and place
+#   details:  optional list of extra lines (advisor, thesis title, etc.)
+#
+# Sections appear in the order written here. Publications are added
+# automatically from src/data/publications.bib after these sections.
+
+sections:
+  - title: Positions
+    items:
+      - when: 2024–present
+        what: Postdoctoral Scholar
+        where: California Institute of Technology, Pasadena, CA
+        details:
+          - "TODO(sam): lab / advisor"
+      - when: 2019–2024
+        what: Graduate Research Assistant
+        where: University of Colorado Boulder, Boulder, CO
+        details:
+          - "Advisor: Amy E. Palmer — TODO(sam): confirm"
+
+  - title: Education
+    items:
+      - when: "2024"
+        what: Ph.D., Molecular, Cell, and Developmental Biology
+        where: University of Colorado Boulder
+        details:
+          - "Dissertation: Mapping the Zinc Dynamics and Requirements of the Mammalian Cell Cycle"
+      - when: "2017"
+        what: B.S., Biochemistry
+        where: "TODO(sam): institution"
+
+  - title: Honors and Awards
+    items:
+      - when: 2025–present
+        what: Divisional Postdoctoral Fellowship
+        where: "TODO(sam): division, Caltech"
+
+  # TODO(sam): sections worth adding for the job market, e.g.
+  # - title: Grants and Funding
+  # - title: Invited Talks
+  # - title: Conference Presentations
+  # - title: Teaching
+  # - title: Mentoring
+  # - title: Service

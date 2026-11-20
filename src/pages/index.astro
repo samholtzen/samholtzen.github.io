@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import portrait from '../assets/profile.jpg';
+
+const home = await getEntry('pages', 'home');
+if (!home) throw new Error('Missing src/content/pages/home.md');
+const { Content } = await render(home);
+---
+
+<Base>
+  <div class="intro">
+    <Image
+      class="portrait"
+      src={portrait}
+      alt={`Portrait of ${site.name}`}
+      width={320}
+      height={320}
+      loading="eager"
+    />
+    <div class="intro-text">
+      <h1>{site.name}</h1>
+      <p class="tagline">{site.tagline}</p>
+      <p class="position muted">{site.position}</p>
+    </div>
+  </div>
+
+  <div class="prose">
+    <Content />
+  </div>
+</Base>
+
+<style>
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+
+  @media (min-width: 40rem) {
+    .intro {
+      grid-template-columns: 10rem 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  .portrait {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .tagline {
+    font-style: italic;
+    font-size: var(--text-lg);
+    margin: 0 0 0.25rem;
+  }
+
+  .position {
+    margin: 0;
+  }
+</style>

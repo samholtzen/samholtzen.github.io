@@ -1,0 +1,98 @@
+---
+import type { Publication } from '../lib/bibtex';
+
+interface Props {
+  publications: Publication[];
+  /** Show a year heading before each new year. */
+  groupByYear?: boolean;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { publications, groupByYear = true, headingLevel = 'h2' } = Astro.props;
+const Heading = headingLevel;
+
+const groups: { year: number; items: Publication[] }[] = [];
+for (const pub of publications) {
+  const last = groups.at(-1);
+  if (groupByYear && last?.year === pub.year) last.items.push(pub);
+  else if (!groupByYear && last) last.items.push(pub);
+  else groups.push({ year: pub.year, items: [pub] });
+}
+---
+
+{
+  groups.map((group) => (
+    <section class="pub-group">
+      {groupByYear && <Heading class="pub-year">{group.year}</Heading>}
+      <ol class="pubs">
+        {group.items.map((pub) => (
+          <li class="pub" id={pub.key}>
+            <span class="pub-title" set:html={pub.titleHtml} />
+            <span class="pub-authors">
+              {pub.authors.map((a, i) => (
+                <>
+                  {a.isSelf ? <strong>{a.display}</strong> : a.display}
+                  {i < pub.authors.length - 1 ? ', ' : ''}
+                </>
+              ))}
+              {pub.etAl && ', et al.'}
+            </span>
+            <span class="pub-venue">
+              {pub.venue && <em>{pub.venue}</em>}
+              {pub.venue && ' '}({pub.year})
+              {pub.links.map((l) => (
+                <>
+                  {' · '}
+                  <a href={l.href}>{l.label}</a>
+                </>
+              ))}
+            </span>
+          </li>
+        ))}
+      </ol>
+    </section>
+  ))
+}
+
+<style>
+  .pub-year {
+    font-size: var(--text-lg);
+    color: var(--ink-muted);
+    margin: 2.25rem 0 0.75rem;
+    font-variant-numeric: lining-nums;
+  }
+
+  .pub-group:first-child .pub-year {
+    margin-top: 0;
+  }
+
+  .pubs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pub {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-bottom: 1.25rem;
+    max-width: var(--measure);
+  }
+
+  .pub-title {
+    font-size: var(--text-base);
+    line-height: 1.35;
+  }
+
+  .pub-authors,
+  .pub-venue {
+    font-size: var(--text-sm);
+    color: var(--ink-muted);
+  }
+
+  .pub-authors strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+</style>

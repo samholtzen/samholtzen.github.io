@@ -1,0 +1,108 @@
+---
+import Base from '../layouts/Base.astro';
+import PublicationList from '../components/PublicationList.astro';
+import { getCv, getPublications } from '../lib/content';
+import { site } from '../data/site';
+
+const sections = getCv();
+const publications = getPublications();
+---
+
+<Base title="CV" description={`Curriculum vitae of ${site.name}.`}>
+  <div class="cv-header">
+    <h1>Curriculum Vitae</h1>
+    <a class="pdf" href="/Holtzen_CV.pdf">Download PDF</a>
+  </div>
+
+  {
+    sections.map((section) => (
+      <section class="cv-section">
+        <h2>{section.title}</h2>
+        <ul class="cv-items">
+          {section.items.map((item) => (
+            <li class="cv-item">
+              <span class="when">{item.when}</span>
+              <div>
+                <span class="what">{item.what}</span>
+                {item.where && <span class="where muted">{item.where}</span>}
+                {item.details && (
+                  <ul class="details">
+                    {item.details.map((d) => (
+                      <li>{d}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <section class="cv-section">
+    <h2>Publications</h2>
+    <PublicationList publications={publications} headingLevel="h3" />
+  </section>
+</Base>
+
+<style>
+  .cv-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+  }
+
+  .pdf {
+    font-size: var(--text-sm);
+  }
+
+  .cv-section h2 {
+    font-size: var(--text-lg);
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .cv-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cv-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 36rem) {
+    .cv-item {
+      grid-template-columns: 8rem 1fr;
+    }
+  }
+
+  .when {
+    color: var(--ink-muted);
+    font-size: var(--text-sm);
+    font-variant-numeric: lining-nums tabular-nums;
+    padding-top: 0.15rem;
+  }
+
+  .what,
+  .where {
+    display: block;
+  }
+
+  .where {
+    font-size: var(--text-sm);
+  }
+
+  .details {
+    margin: 0.25rem 0 0;
+    padding-left: 1.1rem;
+    font-size: var(--text-sm);
+  }
+</style>
