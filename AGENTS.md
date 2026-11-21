@@ -19,6 +19,7 @@ This is Sam Holtzen's personal academic website, served at <https://samholtzen.g
 | Pages | Home, Research, Publications, CV, Writing | Drop news, repositories, GitHub trophies, and the al-folio extras. |
 | Publications | Generated at build time from a BibTeX file | BibTeX is what Google Scholar exports, so adding a paper means pasting an entry. |
 | Writing | Markdown posts in an Astro content collection | Hide the Writing link in the nav until at least one real post exists. |
+| Math | LaTeX in Markdown via `remark-math` + `rehype-katex` | Rendered to HTML at build time. Use `$...$` inline and `$$...$$` for display. Needs `@astrojs/markdown-remark` because Astro 7 defaults to a different Markdown processor. |
 | Client-side JS | None by default | Add it only for a specific feature that needs it. |
 | Design | Classic: serif type, warm off-white background, one muted accent color | See "Design". |
 | Home vs. Research | Separate pages | Research can grow to hold themes and figures. |
