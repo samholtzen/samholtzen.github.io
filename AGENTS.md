@@ -20,8 +20,9 @@ This is Sam Holtzen's personal academic website, served at <https://samholtzen.g
 | Publications | Generated at build time from a BibTeX file | BibTeX is what Google Scholar exports, so adding a paper means pasting an entry. |
 | Writing | Markdown posts in an Astro content collection | Hide the Writing link in the nav until at least one real post exists. |
 | Math | LaTeX in Markdown via `remark-math` + `rehype-katex` | Rendered to HTML at build time. Use `$...$` inline and `$$...$$` for display. Needs `@astrojs/markdown-remark` because Astro 7 defaults to a different Markdown processor. |
-| Client-side JS | None by default | Add it only for a specific feature that needs it. |
-| Design | Classic: serif type, warm off-white background, one muted accent color | See "Design". |
+| Client-side JS | Allowed when it adds real interest or usefulness | Keep it small, progressive (pages must work without it), and respect `prefers-reduced-motion`. No tracking or analytics. Currently none is needed. |
+| Design | "Lab notebook": serif prose, monospace labels, white page, ink-blue accent | See "Design". Chosen from prototypes (notebook, fluorescence, clay, editorial). |
+| Margin notes and figures | Plain Markdown footnotes and titled images, converted by `src/lib/rehype-notebook.mjs` | See "How to update content". |
 | Home vs. Research | Separate pages | Research can grow to hold themes and figures. |
 | CV page | Full HTML CV, no PDF download | Rendered from `src/data/cv.yaml`. The page is the single source of truth, so there is no PDF to keep in sync. |
 
@@ -42,6 +43,7 @@ src/
     profile.jpg       # Portrait (optimized to WebP at build time)
   lib/
     bibtex.ts         # Small BibTeX parser and formatter (no dependency)
+    rehype-notebook.mjs  # Markdown footnotes -> margin notes, titled images -> figures
     content.ts        # Loads publications, CV, and posts for pages
   pages/              # One file per route: index, research, publications, cv, writing/, 404
   layouts/
@@ -61,6 +63,8 @@ public/               # Copied as-is: favicon.svg, robots.txt
 
 - **Edit the home or research text:** `src/content/pages/home.md` or `research.md` (Markdown).
 - **Add a publication:** paste a BibTeX entry into `src/data/publications.bib`. Entries are grouped by year, and your name is bolded. Optional extra fields become links: `doi`, `url`, `pdf`, `preprint`, `code`. Every entry needs a unique key.
+- **Add a margin note:** in any Markdown file, write a normal footnote: `text[^1]` and, anywhere, `[^1]: The note.` It shows in the right margin on wide screens and inline on narrow ones. Notes are numbered automatically.
+- **Add a figure:** `![Alt text](../../assets/fig.png "Caption")`. An image with a title becomes a numbered figure ("Fig. 1.") with the title as its caption. Put image files in `src/assets/`. An image without a title is left alone.
 - **Write a post:** copy `src/content/posts/example-post.md` to a new file. The file name becomes the URL (`/writing/<file-name>/`). Posts with `draft: true` appear only in `npm run dev`.
 - **Update the CV:** edit `src/data/cv.yaml`. The CV page adds publications automatically.
 - **Change name, tagline, position, or links:** edit `src/data/site.ts`.
@@ -70,13 +74,17 @@ public/               # Copied as-is: favicon.svg, robots.txt
 
 ## Design
 
-- Classic academic look: serif body and headings, warm off-white page, dark ink text, one muted accent color for links and small details.
-- Single readable column (about 40rem for prose). Generous whitespace. Mobile first.
-- Colors and type set as CSS custom properties in `global.css`. Accent: muted teal (`#2c5f66` light, `#8cc0c6` dark).
-- Light and dark themes that follow `prefers-color-scheme`.
-- System serif stack (Iowan Old Style / Palatino / Georgia). No web fonts yet. No tracking or analytics scripts.
+- **Lab notebook** look: serif body and headings, monospace (system `ui-monospace`) for nav, labels, captions, and notes. White page, navy ink, one ink-blue accent for links and small details. Red (`--accent-hover`) on hover.
+- Notebook touches: `§` before section headings, a `> ` prompt before the tagline, a thin offset frame on the portrait, margin notes, numbered figures, and numbered publication entries (`[07]`, oldest paper is 1, so numbers never change when a paper is added).
+- No graph-paper background and no ruled underline (both tried or considered and declined).
+- Single readable column (about 40rem for prose). Margin notes use the space to the right on screens at least 72rem wide. Generous whitespace. Mobile first.
+- Colors and type are CSS custom properties in `global.css`, including the dark theme. Accent: `#1f4fa3` light, `#8ab4ff` dark.
+- Light and dark themes follow `prefers-color-scheme`.
+- System font stacks only (Iowan Old Style / Palatino / Georgia, and the system monospace). No web fonts. No tracking or analytics scripts.
 - Accessible: semantic HTML, sufficient contrast, visible focus states, alt text on all images.
 - Keep the ☀️ emoji favicon unless replaced.
+
+Other directions prototyped and not chosen: **fluorescence** (dark field, GFP/DAPI accents, a drifting-cells canvas), **clay** (terracotta, stoneware speckle, soft serif), **editorial** (big variable type, hard rules). Ideas worth reusing later: a publication filter by topic, a before/after image slider for microscopy, and a "now" section.
 
 ## Migration status
 
@@ -99,7 +107,7 @@ Use clearly marked placeholders (`TODO(sam): ...`) until this content arrives. D
 
 ## Open questions
 
-- Exact typeface (a self-hosted web font would look identical on every platform) and accent color.
+- Exact typeface (a self-hosted web font would look identical on every platform).
 - Custom domain, or stay on `samholtzen.github.io`?
 
 ## Conventions for agents
