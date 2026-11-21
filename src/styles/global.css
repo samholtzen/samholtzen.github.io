@@ -5,9 +5,13 @@
 :root {
   color-scheme: light dark;
 
-  /* Classic serif stack: Iowan/Palatino on macOS and Windows, Georgia fallback. */
+  /* Notebook: serif body and headings, monospace for labels and metadata. */
   --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
-  --font-sans: 'Helvetica Neue', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: var(--font-serif);
+  --font-heading: var(--font-serif);
+  --font-label: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --heading-weight: 600;
+  --radius: 2px;
 
   --text-sm: 0.9rem;
   --text-base: 1.125rem;
@@ -18,26 +22,27 @@
   --measure: 40rem;   /* readable line length for prose */
   --page: 48rem;      /* overall page width */
   --gutter: 1.25rem;
+  --note-width: 13rem; /* margin notes (wide screens only) */
 
-  /* Light: warm paper, dark ink, muted teal accent. */
+  /* Light: white page, navy ink, ink-blue accent. */
   --bg: #ffffff;
-  --surface: #f2ede2;
-  --ink: #1f1c18;
-  --ink-muted: #5f5a52;
-  --rule: #ddd5c6;
-  --accent: #2c5f66;
-  --accent-hover: #1d454b;
+  --surface: #f0ebda;
+  --ink: #1d2433;
+  --ink-muted: #5b6272;
+  --rule: #c9d3e3;
+  --accent: #1f4fa3;
+  --accent-hover: #b3261e;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1a1816;
-    --surface: #24211e;
-    --ink: #ebe6dc;
-    --ink-muted: #a59e92;
-    --rule: #3a3530;
-    --accent: #59982f;
-    --accent-hover: #b4dade;
+    --bg: #14181f;
+    --surface: #1d232d;
+    --ink: #e4e8f1;
+    --ink-muted: #98a1b3;
+    --rule: #2b3445;
+    --accent: #8ab4ff;
+    --accent-hover: #ff9b8f;
   }
 }
 
@@ -71,7 +76,8 @@ body {
 h1,
 h2,
 h3 {
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-weight: var(--heading-weight);
   line-height: 1.2;
   text-wrap: balance;
 }
@@ -90,6 +96,14 @@ h2 {
 h3 {
   font-size: var(--text-lg);
   margin: 2rem 0 0.5rem;
+}
+
+/* Notebook section mark. */
+h2:not(.pub-year)::before {
+  content: '§ ';
+  color: var(--accent);
+  font-family: var(--font-label);
+  font-weight: 400;
 }
 
 p,
@@ -138,12 +152,12 @@ code {
   font-size: 0.9em;
   background: var(--surface);
   padding: 0.1em 0.3em;
-  border-radius: 3px;
+  border-radius: var(--radius);
 }
 
 /* Small caps-style label used for metadata (dates, section kickers). */
 .label {
-  font-family: var(--font-sans);
+  font-family: var(--font-label);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -184,4 +198,85 @@ code {
 
 .skip-link:focus {
   top: 0.75rem;
+}
+
+/* ==========================================================================
+   Margin notes and figures (generated from Markdown by rehype-notebook.mjs)
+   - [^1] footnotes become margin notes on wide screens, inline blocks on narrow.
+   - An image with a title, ![alt](src "Caption"), becomes a numbered figure.
+   ========================================================================== */
+
+.prose,
+article {
+  counter-reset: sidenote figure;
+}
+
+.sidenote-wrap {
+  position: relative;
+}
+
+.sidenote-ref {
+  counter-increment: sidenote;
+  font-family: var(--font-label);
+  font-size: 0.7em;
+  line-height: 0;
+  color: var(--accent);
+  margin-left: 0.1em;
+}
+
+.sidenote-ref::after {
+  content: counter(sidenote);
+}
+
+.sidenote {
+  display: block;
+  margin: 0.5rem 0 0.75rem 1rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--rule);
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--ink-muted);
+}
+
+.sidenote::before {
+  content: counter(sidenote) '. ';
+  color: var(--accent);
+}
+
+@media (min-width: 72rem) {
+  .sidenote {
+    float: right;
+    clear: right;
+    width: var(--note-width);
+    margin: 0.2rem calc(-2.5rem - var(--note-width)) 0.75rem 0;
+    padding-left: 0.75rem;
+  }
+}
+
+figure {
+  margin: 2rem 0;
+}
+
+figure img {
+  display: block;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+
+figcaption {
+  counter-increment: figure;
+  margin-top: 0.6rem;
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+figcaption::before {
+  content: 'Fig. ' counter(figure) '. ';
+  color: var(--accent);
+  font-weight: 600;
 }

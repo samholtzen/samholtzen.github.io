@@ -16,7 +16,7 @@ export const site = {
     { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=1Qz60QMAAAAJ' },
     { label: 'Bluesky', href: 'https://bsky.app/profile/samholtzen.bsky.social' },
     { label: 'GitHub', href: 'https://github.com/samholtzen' },
-    // TODO(sam): add ORCID, e.g. { label: 'ORCID', href: 'https://orcid.org/0000-...' },
+    { label: 'ORCID', href: 'https://orcid.org/0000-0003-2148-8677' },
   ],
 
   // Header navigation, in order. "Writing" is hidden until a post is published.

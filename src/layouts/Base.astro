@@ -32,8 +32,8 @@ const year = new Date().getFullYear();
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="theme-color" content="#faf7f0" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1a1816" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14181f" media="(prefers-color-scheme: dark)" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
@@ -105,7 +105,9 @@ const year = new Date().getFullYear();
     font-size: var(--text-lg);
     color: var(--ink);
     text-decoration: none;
-    letter-spacing: 0.01em;
+    font-family: var(--font-label);
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
   }
 
   nav ul {
@@ -120,7 +122,9 @@ const year = new Date().getFullYear();
   nav a {
     color: var(--ink-muted);
     text-decoration: none;
-    font-size: var(--text-base);
+    font-family: var(--font-label);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
   }
 
   nav a:hover,
@@ -143,7 +147,8 @@ const year = new Date().getFullYear();
   .site-footer {
     padding-block: 1.5rem 3rem;
     border-top: 1px solid var(--rule);
-    font-size: var(--text-sm);
+    font-family: var(--font-label);
+    font-size: 0.8rem;
   }
 
   .footer-links {
