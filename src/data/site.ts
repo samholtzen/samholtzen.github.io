@@ -5,10 +5,10 @@ export const site = {
   name: 'Sam Holtzen',
   tagline: 'Known to dabble.',
   // One line shown under your name on the home page.
-  position: 'Postdoctoral Scholar, California Institute of Technology',
+  position: 'Postdoctoral Fellow, California Institute of Technology',
   // Used in search results and link previews.
   description:
-    'Sam Holtzen is a postdoctoral scholar at Caltech. TODO(sam): one-sentence research summary.',
+    'Sam Holtzen is a postdoctoral fellow at Caltech researching (like most biologists) how beautifully complex life can be.',
 
   // Remove a link by deleting its line. Leave `href` empty to hide it.
   links: [
