@@ -7,7 +7,7 @@
 
   /* Classic serif stack: Iowan/Palatino on macOS and Windows, Georgia fallback. */
   --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
-  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Helvetica Neue', -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   --text-sm: 0.9rem;
   --text-base: 1.125rem;
@@ -20,7 +20,7 @@
   --gutter: 1.25rem;
 
   /* Light: warm paper, dark ink, muted teal accent. */
-  --bg: #faf7f0;
+  --bg: #ffffff;
   --surface: #f2ede2;
   --ink: #1f1c18;
   --ink-muted: #5f5a52;
@@ -36,7 +36,7 @@
     --ink: #ebe6dc;
     --ink-muted: #a59e92;
     --rule: #3a3530;
-    --accent: #8cc0c6;
+    --accent: #59982f;
     --accent-hover: #b4dade;
   }
 }
@@ -60,7 +60,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: 1.6;
   font-kerning: normal;
@@ -71,7 +71,7 @@ body {
 h1,
 h2,
 h3 {
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
   text-wrap: balance;
 }

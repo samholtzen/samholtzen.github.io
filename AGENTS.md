@@ -22,7 +22,7 @@ This is Sam Holtzen's personal academic website, served at <https://samholtzen.g
 | Client-side JS | None by default | Add it only for a specific feature that needs it. |
 | Design | Classic: serif type, warm off-white background, one muted accent color | See "Design". |
 | Home vs. Research | Separate pages | Research can grow to hold themes and figures. |
-| CV page | Full HTML CV, plus a link to the PDF | Rendered from `src/data/cv.yaml`. |
+| CV page | Full HTML CV, no PDF download | Rendered from `src/data/cv.yaml`. The page is the single source of truth, so there is no PDF to keep in sync. |
 
 ## Structure
 
@@ -50,7 +50,7 @@ src/
   styles/
     global.css        # Design tokens (CSS custom properties) and base styles
   content.config.ts   # Content collection schemas
-public/               # Copied as-is: Holtzen_CV.pdf, favicon.svg, robots.txt
+public/               # Copied as-is: favicon.svg, robots.txt
 .github/workflows/deploy.yml
 ```
 
@@ -61,7 +61,7 @@ public/               # Copied as-is: Holtzen_CV.pdf, favicon.svg, robots.txt
 - **Edit the home or research text:** `src/content/pages/home.md` or `research.md` (Markdown).
 - **Add a publication:** paste a BibTeX entry into `src/data/publications.bib`. Entries are grouped by year, and your name is bolded. Optional extra fields become links: `doi`, `url`, `pdf`, `preprint`, `code`. Every entry needs a unique key.
 - **Write a post:** copy `src/content/posts/example-post.md` to a new file. The file name becomes the URL (`/writing/<file-name>/`). Posts with `draft: true` appear only in `npm run dev`.
-- **Update the CV:** edit `src/data/cv.yaml` and replace `public/Holtzen_CV.pdf`. The CV page adds publications automatically.
+- **Update the CV:** edit `src/data/cv.yaml`. The CV page adds publications automatically.
 - **Change name, tagline, position, or links:** edit `src/data/site.ts`.
 - **Change the portrait:** replace `src/assets/profile.jpg` (square works best).
 - **Preview locally:** `npm install` once, then `npm run dev` and open <http://localhost:4321>.
@@ -93,7 +93,6 @@ Remaining before merging to `main`:
 - Recent publications or preprints since the last `.bib` update.
 - The Divisional Postdoctoral Fellowship details and any other awards.
 - New interests to mention.
-- An updated CV PDF.
 
 Use clearly marked placeholders (`TODO(sam): ...`) until this content arrives. Do not invent biographical or research details.
 
