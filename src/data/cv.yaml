@@ -16,12 +16,12 @@ sections:
         what: Postdoctoral Scholar
         where: California Institute of Technology, Pasadena, CA
         details:
-          - "TODO(sam): lab / advisor"
+          - "Advisor: David Van Valen"
       - when: 2019–2024
         what: Graduate Research Assistant
         where: University of Colorado Boulder, Boulder, CO
         details:
-          - "Advisor: Amy E. Palmer — TODO(sam): confirm"
+          - "Advisor: Amy E. Palmer"
 
   - title: Education
     items:
@@ -32,13 +32,13 @@ sections:
           - "Dissertation: Mapping the Zinc Dynamics and Requirements of the Mammalian Cell Cycle"
       - when: "2017"
         what: B.S., Biochemistry
-        where: "TODO(sam): institution"
+        where: Georgia Institute of Technology
 
   - title: Honors and Awards
     items:
       - when: 2025–present
         what: Divisional Postdoctoral Fellowship
-        where: "TODO(sam): division, Caltech"
+        where: "Biology and Biological Engineering Division, Caltech"
 
   # TODO(sam): sections worth adding for the job market, e.g.
   # - title: Grants and Funding
