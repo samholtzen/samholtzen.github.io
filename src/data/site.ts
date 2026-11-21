@@ -8,7 +8,7 @@ export const site = {
   position: 'Postdoctoral Fellow, California Institute of Technology',
   // Used in search results and link previews.
   description:
-    'Sam Holtzen is a postdoctoral fellow at Caltech researching (like most biologists) how beautifully complex life can be.',
+    'Sam Holtzen is a postdoctoral fellow at Caltech building tools for optical pooled screening, deep learning microscopy, and biosensor design.',
 
   // Remove a link by deleting its line. Leave `href` empty to hide it.
   links: [
