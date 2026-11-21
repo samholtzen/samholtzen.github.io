@@ -13,7 +13,7 @@ sections:
   - title: Positions
     items:
       - when: 2024–present
-        what: Postdoctoral fellow
+        what: Postdoctoral fellow, Biology and Biological Engineering
         where: California Institute of Technology, Pasadena, CA
         details:
           - "Advisor: David Van Valen"
@@ -22,28 +22,145 @@ sections:
         where: University of Colorado Boulder, Boulder, CO
         details:
           - "Advisor: Amy E. Palmer"
+      - when: 2018–2019
+        what: Higher Education Research Experiences (HERE) intern
+        where: Oak Ridge National Laboratory, Oak Ridge, TN
+        details:
+          - "Advisor: Adam Guss, Biosciences Division"
+      - when: 2016–2018
+        what: Undergraduate research assistant
+        where: Georgia Institute of Technology, Atlanta, GA
+        details:
+          - "Advisor: Amanda Stockton"
 
   - title: Education
     items:
-      - when: "2024"
+      - when: 2019–2024
         what: Ph.D., Molecular, Cell, and Developmental Biology
         where: University of Colorado Boulder
         details:
           - "Dissertation: Mapping the Zinc Dynamics and Requirements of the Mammalian Cell Cycle"
-      - when: "2017"
-        what: B.S., Biochemistry
+      - when: 2013–2017
+        what: B.S., Biochemistry, Pre-Health Concentration (cum laude)
         where: Georgia Institute of Technology
+
+  - title: Research
+    items:
+      - when: 2025–present
+        what: Modernizing bio-image analysis tools with PyTorch
+        where: "Advisor: David Van Valen, California Institute of Technology"
+        details:
+          - "The Van Valen group's deep learning tools for segmenting and tracking high-dimensional biological images were built on TensorFlow. I am writing and implementing PyTorch versions of our models Mesmer, Caliban, and Polaris to improve stability and cross-platform performance."
+      - when: 2024–present
+        what: Repetitive element-based spatial barcoding for rapid high-throughput screening
+        where: "Advisor: David Van Valen, California Institute of Technology"
+        details:
+          - "I am developing a spatial barcoding method that uses dCas9 and gRNAs to target repetitive elements in the genome, with the resulting patterns read out by multicolor FISH. A deep learning model trained on these patterns identifies gRNAs with 90–99% accuracy. The encoding space is limited only by the number of discernible patterns and FISH colors, and readout needs a single multicolor FISH step."
+      - when: 2024–present
+        what: Computational design and in vitro validation of novel metabolite biosensors
+        where: "Advisor: David Van Valen, California Institute of Technology"
+        details:
+          - "Using computational protein design tools (RFdiffusion, LigandMPNN, AlphaFold), I am designing and testing novel sensing domains for fluorescent biosensors of less-studied metabolites involved in immune metabolism, to illuminate understudied aspects of metabolism as cells grow, divide, and differentiate."
+      - when: 2020–2024
+        what: Mapping the zinc requirements of the mammalian cell cycle
+        where: "Advisor: Amy E. Palmer, University of Colorado Boulder"
+        details:
+          - "Mild to moderate zinc deficiency splits cell fate and increases the DNA damage response in cell culture, but no mechanism has been defined. My thesis research aims to decouple the causes, consequences, and sequence of events that drive zinc-deficient cells into quiescence."
+      - when: 2020–2023
+        what: Cellular dynamics of free zinc throughout the mammalian cell cycle
+        where: "Advisor: Amy E. Palmer, University of Colorado Boulder"
+        details:
+          - "Using a genetically encoded FRET zinc sensor and long-term live-cell imaging of single cells, we identified zinc dynamics in the mammalian cell cycle, and monitored them after depletion of a transcription factor involved in the response to high zinc. I was responsible for data stewardship and analysis of terabytes of high-content live-cell imaging data."
+      - when: 2018–2019
+        what: Engineering Pseudomonas putida KT2440 for the valorization of lignin
+        where: "Advisor: Adam Guss, Oak Ridge National Laboratory"
+        details:
+          - "Worked with a graduate student to engineer P. putida to catabolize lignin monomers into value-added chemicals. Developed and optimized extraction of fatty alcohols and polyhydroxyalkanoate monomers for GC-MS analysis, and maintained and troubleshot the group's GC-MS."
+      - when: 2016–2018
+        what: Biomarker analysis for validating Earth analogue sampling techniques
+        where: "Advisor: Amanda Stockton, Georgia Institute of Technology"
+        details:
+          - "Cataloged and curated Icelandic tephra samples from field expeditions, developed a pipeline for DNA extraction from low-biomass samples and library preparation for 16S rRNA community analysis, and helped develop an in situ co-culturing chip for unculturable microbes. Joined a June–July 2018 field expedition to sample volcanic tephra from the Holuhraun lava field in the Icelandic highlands."
 
   - title: Honors and Awards
     items:
       - when: 2025–present
         what: Divisional Postdoctoral Fellowship
-        where: "Biology and Biological Engineering Division, Caltech"
+        where: "Division of Biology and Biological Engineering, California Institute of Technology"
+      - when: 2013–2017
+        what: Dean's List
+        where: "Department of Chemistry and Biochemistry, Georgia Institute of Technology"
 
-  # TODO(sam): sections worth adding for the job market, e.g.
-  # - title: Grants and Funding
-  # - title: Invited Talks
-  # - title: Conference Presentations
-  # - title: Teaching
-  # - title: Mentoring
-  # - title: Service
+  - title: Teaching
+    items:
+      - when: Spring 2023, Spring 2024
+        what: Analytical and Quantitative Light Microscopy, teaching assistant
+        where: University of Colorado Boulder
+        details:
+          - "Principal instructor: Amy Palmer"
+      - when: Spring 2020
+        what: Phage Discovery Laboratory, teaching assistant
+        where: University of Colorado Boulder
+        details:
+          - "Principal instructors: Nancy Guild and Megan Greening"
+      - when: Spring 2020
+        what: Principles of Genetics, teaching assistant
+        where: University of Colorado Boulder
+        details:
+          - "Principal instructor: Jennifer Knight"
+      - when: Fall 2019
+        what: Developmental Biology, teaching assistant
+        where: University of Colorado Boulder
+        details:
+          - "Principal instructor: Jennifer Knight"
+
+  - title: Presentations
+    items:
+      - when: "2025"
+        what: Accelerating optical pooled screening with deep learning
+        where: Optical Pooled Screening Supergroup
+        details:
+          - "Samuel Holtzen, Morgan Schwartz, Gohta Aihara, Edward Pao, David Van Valen"
+
+  - title: Conference Abstracts
+    items:
+      - when: "2026"
+        what: Optical pooled screening of bespoke sensing domains (poster)
+        where: Fluorescent Proteins and Biological Sensors VIII
+        details:
+          - "Samuel Holtzen, David Van Valen"
+      - when: "2025"
+        what: Accelerating optical pooled screening with deep learning (poster)
+        where: HHMI Science Meeting
+        details:
+          - "Samuel Holtzen, Morgan Schwartz, Gohta Aihara, Edward Pao, David Van Valen"
+      - when: "2025"
+        what: Accelerating optical pooled screening with deep learning (poster)
+        where: Systems Biology of Single Cells
+        details:
+          - "Samuel Holtzen, Morgan Schwartz, Gohta Aihara, Edward Pao, David Van Valen"
+      - when: "2022"
+        what: Untangling the role of zinc in the mammalian cell cycle and DNA damage response
+        where: Chemical Biology and Physiology
+        details:
+          - "Samuel Holtzen, Joseph Kainov, Elnaz Navid, Lottie Steward, Amy Palmer"
+      - when: "2019"
+        what: Production of medium chain length alcohols from lignin-derived aromatic compounds in Pseudomonas putida
+        where: SIMB Annual Meeting and Exhibition
+        details:
+          - "Jay Huenemann, Joshua Elmore, Samuel Holtzen, Adam Guss"
+      - when: "2019"
+        what: "Biomarker and Geochemical Assay Validation in Mars Analog Sites: Lessons from the FELDSPAR (Field Exploration and Life Detection Sampling for Planetary Analog Research) Project"
+        where: Conference abstract
+        details:
+          - "Diana Gentry, Elena Sophia Amador, Morgan L. Cable, Thomas Cantrell, Nosheen Chaudry, Thomas Cullen, Zachary A. Duca, Samuel Holtzen, Malene B. Jacobsen, David King, Jessica Kirby, Heather Catherine McCaig, Gayathri Murukesan, Erika Rader, Adrianne Reeder, Vincent Rennie, Edward Schwieterman, Alexander Michael Sessa, Adam Stevens, Scot M. Sutton, George Kenneth Tan, Chang Yin, David Cullen, Wolf Geppert, Amanda M. Stockton"
+      - when: "2019"
+        what: Evaluation of spatial variation in life-detection assay results in apparently homogeneous samples from Mars analog environments in Iceland
+        where: Astrobiology Science Conference
+        details:
+          - "George Kenneth Tan, Amanda M. Stockton, Morgan L. Cable, Wolf Geppert, David Cullen, Diana Gentry, Elena Sophia Amador, Adam Stevens, Thomas Cantrell, Zachary A. Duca, Samuel Holtzen, Heather Catherine McCaig, Jarah Whitehead, Gayathri Murukesan, Vincent Rennie, Jessica Kirby, Thomas Cullen"
+      - when: "2019"
+        what: "A Recent Volcanic Eruption, Holuhraun, in the Central Highlands of Iceland as a Mars analog: The 2018 Field Campaign of FELDSPAR"
+        where: Astrobiology Science Conference
+        details:
+          - "Amanda M. Stockton, Elena Amador, Morgan L. Cable, David Cullen, Julia Fraser, Diana Gentry, Wolf Geppert, Samuel Holtzen, Gayathri Murukesan, Erica Rader, Adrianne Reeder, Alexander Michael Sessa"
