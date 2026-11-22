@@ -9,7 +9,7 @@ DeepCell is a suite of deep learning models for analyzing large-scale microscopy
 
 **Check out the models!**
 
-- ![Alt text](../../assets/mesmer_model.png "Caption")
+- ![Mesmer](../../assets/mesmer_model.png "A schematic of the PanopticNet that underpins Mesmer's cell segmentation.")
 
   ### ☀️ [torch-mesmer](https://github.com/vanvalenlab/torch-mesmer)
 
@@ -17,7 +17,7 @@ DeepCell is a suite of deep learning models for analyzing large-scale microscopy
 
   Original publication: [Whole-cell segmentation of tissue images with human-level performance using large-scale data annotation and deep learning](https://www.nature.com/articles/s41587-021-01094-0)
 
-- ![Alt text](../../assets/spots_model.png "Caption")
+- ![SpotNet](../../assets/spots_model.png "A schematic of SpotNet.")
 
   ### ⭐️ [torch-spots](https://github.com/vanvalenlab/torch-spots)
 
@@ -25,7 +25,7 @@ DeepCell is a suite of deep learning models for analyzing large-scale microscopy
 
   Original publication: [Accurate single-molecule spot detection for image-based spatial transcriptomics with weakly supervised deep learning](https://www.cell.com/cell-systems/fulltext/S2405-4712(24)00121-2)
 
-- ![Alt text](../../assets/tracking_model.png "Caption")
+- ![GNN Tracking Model](../../assets/tracking_model.png "A schematic of the multi-modal cell tracking model.")
 
   ### 🌚 [torch-tracking](https://github.com/vanvalenlab/torch-tracking)
 
@@ -33,7 +33,7 @@ DeepCell is a suite of deep learning models for analyzing large-scale microscopy
 
   Original publication: [Caliban: Accurate cell tracking and lineage construction in live-cell imaging experiments with deep learning](https://www.biorxiv.org/content/10.1101/803205v4.full)
 
-- ![Alt text](../../assets/dnn_model.png "Caption")
+- ![DynamicNuclearNet](../../assets/dnn_model.png "A schematic of the PanopticNet that underpins DynamicNuclearNet.")
 
   ### 🌝 [torch-dynamicnuclearnet](https://github.com/vanvalenlab/torch-dynamicnuclearnet)
 
