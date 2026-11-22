@@ -79,6 +79,17 @@ const year = new Date().getFullYear();
       </ul>
       <p class="muted">© {year} {site.name}</p>
     </footer>
+    <script>
+      // Progressive: make card thumbnails open the full image. Without JS
+      // the cards still work, just without the link.
+      for (const img of document.querySelectorAll<HTMLImageElement>('.card-figure img')) {
+        const link = document.createElement('a');
+        link.href = img.currentSrc || img.src;
+        link.setAttribute('aria-label', `Open full image: ${img.alt}`);
+        img.replaceWith(link);
+        link.append(img);
+      }
+    </script>
   </body>
 </html>
 
