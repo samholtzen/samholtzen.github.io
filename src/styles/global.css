@@ -10,19 +10,20 @@
   --font-sans: var(--font-serif);
   --font-heading: var(--font-serif);
   --font-label: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  --heading-weight: 600;
+  --heading-weight: 500;
   --radius: 2px;
 
-  --text-sm: 0.9rem;
-  --text-base: 1.125rem;
-  --text-lg: 1.3rem;
-  --text-xl: 1.75rem;
-  --text-2xl: 2.4rem;
+  --text-sm: 0.85rem;
+  --text-base: 1.05rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2.1rem;
+  --text-caption: 0.875rem; /* figure captions and margin notes */
 
-  --measure: 40rem;   /* readable line length for prose */
-  --page: 48rem;      /* overall page width */
+  --measure: 46rem;   /* readable line length for prose */
+  --page: 80rem;      /* overall page width; figures can use all of it */
   --gutter: 1.25rem;
-  --note-width: 13rem; /* margin notes (wide screens only) */
+  --note-width: 17rem; /* margin notes (wide screens only) */
 
   /* Light: white page, navy ink, ink-blue accent. */
   --bg: #ffffff;
@@ -100,7 +101,7 @@ h3 {
 
 /* Notebook section mark. */
 h2:not(.pub-year)::before {
-  content: '§ ';
+  content: '⚆ ';
   color: var(--accent);
   font-family: var(--font-label);
   font-weight: 400;
@@ -234,7 +235,7 @@ article {
   padding-left: 0.75rem;
   border-left: 2px solid var(--rule);
   font-family: var(--font-label);
-  font-size: 0.8rem;
+  font-size: var(--text-caption);
   line-height: 1.5;
   font-style: normal;
   font-weight: 400;
@@ -246,37 +247,74 @@ article {
   color: var(--accent);
 }
 
-@media (min-width: 72rem) {
+@media (min-width: 80rem) {
   .sidenote {
     float: right;
     clear: right;
     width: var(--note-width);
-    margin: 0.2rem calc(-2.5rem - var(--note-width)) 0.75rem 0;
+    margin: 0.2rem calc(-2rem - var(--note-width)) 0.75rem 0;
     padding-left: 0.75rem;
   }
 }
 
+/* Figure widths (after Distill): the text column is narrow, figures are not.
+   fig-page (default) spans the whole page width, including the margin-note
+   area; fig-body stays in the text column; fig-screen runs edge to edge.
+   `main` is a size container, so 100cqw is the width of the page content box. */
+main {
+  container-type: inline-size;
+}
+
+body {
+  overflow-x: clip;
+}
+
 figure {
-  margin: 2rem 0;
+  margin: 2.5rem 0;
+  clear: right; /* sit below any margin notes */
+}
+
+figure.fig-page {
+  width: 100cqw;
+}
+
+figure.fig-screen {
+  width: 100vw;
+  margin-left: calc((100cqw - 100vw) / 2);
+}
+
+figure.fig-body {
+  max-width: 100%;
 }
 
 figure img {
   display: block;
-  border: 1px solid var(--rule);
+  width: 100%;
+  height: auto;
+  border: 0px solid var(--rule);
   border-radius: var(--radius);
+}
+
+figure.fig-screen img {
+  border-radius: 0;
 }
 
 figcaption {
   counter-increment: figure;
   margin-top: 0.6rem;
   font-family: var(--font-label);
-  font-size: 0.8rem;
+  max-width: var(--measure);
+  font-size: var(--text-caption);
   line-height: 1.5;
   color: var(--ink-muted);
 }
 
+figure.fig-screen figcaption {
+  margin-left: calc((100vw - 100cqw) / 2);
+}
+
 figcaption::before {
   content: 'Fig. ' counter(figure) '. ';
-  color: var(--accent);
+  color: var(--accent-hover);
   font-weight: 600;
 }
