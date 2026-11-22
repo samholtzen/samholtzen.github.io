@@ -12,21 +12,24 @@ DeepCell is a suite of deep learning models for analyzing large-scale microscopy
 ### ☀️ **[torch-mesmer](https://github.com/vanvalenlab/torch-mesmer)**: a PyTorch implementation of Mesmer 
 See the original publication: [Whole-cell segmentation of tissue images with human-level performance using large-scale data annotation and deep learning](https://www.nature.com/articles/s41587-021-01094-0)
 
-
+![Alt text](../../assets/mesmer_model.png "Caption")
 
 ### ⭐️ **[torch-spots](https://github.com/vanvalenlab/torch-spots)**: a PyTorch implementation spot detection and decoding 
 See the original publication: [Accurate single-molecule spot detection for image-based spatial transcriptomics with weakly supervised deep learning](https://www.cell.com/cell-systems/fulltext/S2405-4712(24)00121-2)
 
+![Alt text](../../assets/spots_model.png "Caption")
 
 
-### 🌝 **[torch-tracking](https://github.com/vanvalenlab/torch-tracking)**: a PyTorch implementation of the cell tracking model 
+### 🌝 **[torch-tracking](https://github.com/vanvalenlab/torch-tracking)**: a PyTorch implementation of Caliban's cell tracking model 
 See the original publication: [Caliban: Accurate cell tracking and lineage construction in live-cell imaging experiments with deep learning](https://www.biorxiv.org/content/10.1101/803205v4.full)
 
+![Alt text](../../assets/tracking_model.png "Caption")
 
 
-### 🌚 **[torch-dynamicnuclearnet](https://github.com/vanvalenlab/torch-dynamicnuclearnet)** a PyTorch implementation of the nuclear segmentation model 
+### 🌚 **[torch-dynamicnuclearnet](https://github.com/vanvalenlab/torch-dynamicnuclearnet)**: a PyTorch implementation of Caliban's nuclear segmentation model 
 See the original publication: [Caliban: Accurate cell tracking and lineage construction in live-cell imaging experiments with deep learning](https://www.biorxiv.org/content/10.1101/803205v4.full)
 
+![Alt text](../../assets/dnn_model.png "Caption")
 
 
 ## Optical pooled screening

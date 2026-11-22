@@ -6,6 +6,8 @@
 //    screens) or in the text flow (narrow screens).
 // 2. Images with a title -> figures. ![alt](src "Caption") becomes
 //    <figure><img><figcaption>Caption</figcaption></figure>, numbered by CSS.
+//    Width classes, after Distill: fig-body (text column), fig-page (default,
+//    full page width), fig-screen (edge to edge). Set with "[body] Caption".
 
 const isElement = (node, tag) => node?.type === 'element' && (!tag || node.tagName === tag);
 const isBlankText = (node) => node.type === 'text' && node.value.trim() === '';
@@ -73,9 +75,13 @@ function makeFigures(node) {
       const [img] = content;
       if (content.length === 1 && isElement(img, 'img') && img.properties?.title) {
         const { title, ...rest } = img.properties;
-        return el('figure', {}, [
+        // Optional width prefix in the title: "[body] Caption", "[page] ...", "[screen] ...".
+        const m = String(title).match(/^\[(body|page|screen)\]\s*/i);
+        const size = m ? m[1].toLowerCase() : 'page';
+        const caption = m ? String(title).slice(m[0].length) : String(title);
+        return el('figure', { className: [`fig-${size}`] }, [
           { ...img, properties: rest },
-          el('figcaption', {}, [{ type: 'text', value: String(title) }]),
+          el('figcaption', {}, [{ type: 'text', value: caption }]),
         ]);
       }
     }

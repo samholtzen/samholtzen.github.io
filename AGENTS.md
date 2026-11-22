@@ -21,6 +21,7 @@ This is Sam Holtzen's personal academic website, served at <https://samholtzen.g
 | Writing | Markdown posts in an Astro content collection | Hide the Writing link in the nav until at least one real post exists. |
 | Math | LaTeX in Markdown via `remark-math` + `rehype-katex` | Rendered to HTML at build time. Use `$...$` inline and `$$...$$` for display. Needs `@astrojs/markdown-remark` because Astro 7 defaults to a different Markdown processor. |
 | Client-side JS | Allowed when it adds real interest or usefulness | Keep it small, progressive (pages must work without it), and respect `prefers-reduced-motion`. No tracking or analytics. Currently none is needed. |
+| Layout | Wide page (80rem), 46rem text column, margin notes right, Distill-style wide figures | Chosen from layout experiments (a, b, c); b won. |
 | Design | "Lab notebook": serif prose, monospace labels, white page, ink-blue accent | See "Design". Chosen from prototypes (notebook, fluorescence, clay, editorial). |
 | Margin notes and figures | Plain Markdown footnotes and titled images, converted by `src/lib/rehype-notebook.mjs` | See "How to update content". |
 | Home vs. Research | Separate pages | Research can grow to hold themes and figures. |
@@ -64,7 +65,7 @@ public/               # Copied as-is: favicon.svg, robots.txt
 - **Edit the home or research text:** `src/content/pages/home.md` or `research.md` (Markdown).
 - **Add a publication:** paste a BibTeX entry into `src/data/publications.bib`. Entries are grouped by year, and your name is bolded. Optional extra fields become links: `doi`, `url`, `pdf`, `preprint`, `code`. Every entry needs a unique key.
 - **Add a margin note:** in any Markdown file, write a normal footnote: `text[^1]` and, anywhere, `[^1]: The note.` It shows in the right margin on wide screens and inline on narrow ones. Notes are numbered automatically.
-- **Add a figure:** `![Alt text](../../assets/fig.png "Caption")`. An image with a title becomes a numbered figure ("Fig. 1.") with the title as its caption. Put image files in `src/assets/`. An image without a title is left alone.
+- **Add a figure:** `![Alt text](../../assets/fig.png "Caption")`. An image with a title becomes a numbered figure ("Fig. 1.") with the title as its caption. Put image files in `src/assets/`. An image without a title is left alone. Figures are wider than the text column, as on Distill: the default (`[page]`) spans the full page width, `[body]` stays in the text column, `[screen]` runs edge to edge. Set it with a prefix in the title: `"[body] Caption"`.
 - **Write a post:** copy `src/content/posts/example-post.md` to a new file. The file name becomes the URL (`/writing/<file-name>/`). Posts with `draft: true` appear only in `npm run dev`.
 - **Update the CV:** edit `src/data/cv.yaml`. The CV page adds publications automatically.
 - **Change name, tagline, position, or links:** edit `src/data/site.ts`.
@@ -75,9 +76,9 @@ public/               # Copied as-is: favicon.svg, robots.txt
 ## Design
 
 - **Lab notebook** look: serif body and headings, monospace (system `ui-monospace`) for nav, labels, captions, and notes. White page, navy ink, one ink-blue accent for links and small details. Red (`--accent-hover`) on hover.
-- Notebook touches: `§` before section headings, a `> ` prompt before the tagline, a thin offset frame on the portrait, margin notes, numbered figures, and numbered publication entries (`[07]`, oldest paper is 1, so numbers never change when a paper is added).
+- Notebook touches: `☉` before section headings, a `> ` prompt before the tagline, a thin offset frame on the portrait, margin notes, numbered figures, and numbered publication entries (`[07]`, oldest paper is 1, so numbers never change when a paper is added).
 - No graph-paper background and no ruled underline (both tried or considered and declined).
-- Single readable column (about 40rem for prose). Margin notes use the space to the right on screens at least 72rem wide. Generous whitespace. Mobile first.
+- Page is 80rem wide with a readable text column of 46rem. Margin notes use the space to the right on screens at least 80rem wide, and figures can span the full page width (decided from layout experiments: layout B). Generous whitespace. Mobile first.
 - Colors and type are CSS custom properties in `global.css`, including the dark theme. Accent: `#1f4fa3` light, `#8ab4ff` dark.
 - Light and dark themes follow `prefers-color-scheme`.
 - System font stacks only (Iowan Old Style / Palatino / Georgia, and the system monospace). No web fonts. No tracking or analytics scripts.
